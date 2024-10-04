@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VETERINARIA</title>
+    <style>
+        body {
+            background-image: url('veterinaria3.jpg');
+            background-size: cover; 
+            background-position: center; 
+            background-repeat: no-repeat;
+            font-family: verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .container {
+            display: flex;
+            justify-content: space-between;
+            background-color: rgba(255, 255, 255, 0.9); 
+            padding: 20px;
+            border-radius: 30px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            max-width: 90%; 
+            width: 900px; 
+            height: auto; 
+        }
+
+        .form-section {
+            width: 60%;
+        }
+
+        table {
+            width: 100%;
+        }
+
+        td {
+            padding: 5px; 
+            text-align: left;
+        }
+
+        .image-section {
+            width: 40%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .image-section img {
+            max-width: 100%; 
+            height: auto; 
+            border-radius: 15px;
+        }
+
+        input[type="text"], input[type="tel"], input[type="email"], input[type="date"], select, textarea {
+            width: 95%; 
+            padding: 5px; 
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            margin-top: 5px;
+            box-sizing: border-box; 
+        }
+
+        input[type="submit"] {
+            padding: 10px 30px;
+            border: none;
+            background-color: #0036fc;
+            color: white;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #00dcff;
+        }
+
+        h1 {
+            text-align: center;
+            color: #ff0000; 
+            margin-bottom: 10px;
+            font-size: 28px; 
+        }
+
+        h2 {
+            text-align: center;
+            color: #000;
+            margin-bottom: 10px;
+            font-size: 24px; 
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="form-section">
+            <h1>CLÍNICA VETERINARIA VITAL</h1> 
+            <h2>AGENDAR UNA CITA</h2> 
+            <form id="appointmentForm">
+                <table>
+                    <tr>
+                        <td><label for="propietario">Nombre del Propietario:</label></td>
+                        <td><input type="text" id="propietario" name="propietario" required></td>
+                    </tr>
+                    <tr>
+                        <td><label for="mascota">Nombre de la Mascota:</label></td>
+                        <td><input type="text" id="mascota" name="mascota" required></td>
+                    </tr>
+                    <tr>
+                        <td><label for="direccion">Dirección:</label></td>
+                        <td><input type="text" id="direccion" name="direccion" required></td>
+                    </tr>
+                    <tr>
+                        <td><label for="telefono">Teléfono:</label></td>
+                        <td><input type="tel" id="telefono" name="telefono" required></td>
+                    </tr>
+                    <tr>
+                        <td><label for="email">E-Mail:</label></td>
+                        <td><input type="email" id="email" name="email" required></td>
+                    </tr>
+                    <tr>
+                        <td><label for="especie">Especie:</label></td>
+                        <td><input type="text" id="especie" name="especie" required></td>
+                    </tr>
+                    <tr>
+                        <td><label for="raza">Raza:</label></td>
+                        <td><input type="text" id="raza" name="raza" required></td>
+                    </tr>
+                    <tr>
+                        <td><label for="sexo">Sexo:</label></td>
+                        <td>
+                            <select id="sexo" name="sexo">
+                                <option value="Macho">Macho</option>
+                                <option value="Hembra">Hembra</option>
+                            </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><label for="fecha">Fecha de la cita:</label></td>
+                        <td><input type="date" id="fecha" name="fecha" required></td>
+                    </tr>
+                    <tr>
+                        <td><label for="motivo">Motivo de la consulta:</label></td>
+                        <td><textarea id="motivo" name="motivo" rows="4" cols="30" required></textarea></td>
+                    </tr>
+                    <tr>
+                        <td colspan="2" style="text-align: center;">
+                            <input type="submit" value="Enviar">
+                        </td>
+                    </tr>
+                </table>
+            </form>
+        </div>
+        <div class="image-section">
+            <img src="veteri1.png" alt="Imagen de veterinaria">
+        </div>
+    </div>
+
+    <script>
+        document.getElementById("appointmentForm").addEventListener("submit", function(event) {
+            event.preventDefault(); 
+
+            const propietario = document.getElementById("propietario").value;
+            const mascota = document.getElementById("mascota").value;
+
+            window.location.href = `confirmacion.html?propietario=${encodeURIComponent(propietario)}&mascota=${encodeURIComponent(mascota)}`;
+        });
+    </script>
+</body>
+</html>
+
